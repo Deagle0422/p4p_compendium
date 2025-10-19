@@ -18,6 +18,7 @@ The **`source_code`** directory contains two main subcomponents:
     - Can be executed via:
   ```bash
   ./gradlew run
+  ```bash
 
 ### 🔹 Project Files
 The **`project_files`** folder contains design records, progress updates, and communication materials exchanged with the supervisor (Dr. Zoran Salcic).
