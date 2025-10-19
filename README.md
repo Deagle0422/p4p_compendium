@@ -1,3 +1,4 @@
+This is an individual submission of the report compendium because my partner is not engaged too much with the python simulator, so we decide to do a individual submission.
 # 📁 Folder Structure
 
 ### 🔹 Source Code
