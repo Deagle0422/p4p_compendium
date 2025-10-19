@@ -95,11 +95,9 @@ Results are visualized and stored in temporary directories created during execut
 ### 1. **Install Dependencies**
 ```bash
 pip install numpy matplotlib pandas
-```bash
 
 ### 2. **Run Simulation**
 ```bash
 python normal_test.py
 
 python fault_test.py
-```bash
