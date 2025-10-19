@@ -8,11 +8,24 @@ The **`source_code`** directory contains two main subcomponents:
    It simulates dynamic device status, queue balancing, and fault recovery mechanisms.
 
 2. **SystemJ Exemplar Factory (`SystemJ-Factory/`)**  
-   A synchronous control system model built using **SystemJ**.  
-   It can be executed via:
-   ```bash
-   ./gradlew run
+   This component serves as a **prototype of a distributed control system** modeled in **SystemJ**, a synchronous reactive language designed for real-time embedded and cyber-physical systems.
+   #### 🎯 Purpose
+    The exemplar factory demonstrates how a *reactive control layer* could manage physical or simulated devices (e.g., fillers, cappers, labelers) using synchronous signals and deterministic scheduling. It provides a conceptual and experimental base for future integration with the Python-based digital twin.
+   #### 🧩 Current Implementation
+    At the current stage, the SystemJ factory:
+    - Includes several **control components (CDs)** representing factory workstations and communication channels.
+    - Demonstrates **factory workflow progression**, such as bottle movement, workstation activation, and timing signals.
+    - Can be executed via:
+  ```bash
+  ./gradlew run
 
+### 🔹 Project Files
+The **`project_files`** folder contains design records, progress updates, and communication materials exchanged with the supervisor (Dr. Zoran Salcic).
+These files document project evolution and architecture decisions.
+
+### 🔹 Results
+The **`results`** folder stores simulation outputs and evaluation data from the Python simulator.
+These include performance comparisons (RL vs Rule-based) visualized graphs of completion time, utilization, and load balance.
 
 # Py-Simulator — Digital Twin–Driven Factory Simulation
 
@@ -34,19 +47,15 @@ It is part of the project **“Digital Twins and Machine Learning in Industrial 
 
 ## ⚙️ Core Design
 
-### 1. **Digital Twin Production Model**
+### **Digital Twin Production Model**
 Each physical factory component (fillers, cappers, labelers, conveyors) is modeled as a digital twin with:
 - Realistic operational timing (`filler_time`, `cap_time`, `label_time`)
 - Fault and recovery mechanisms
 - Queue-based workpiece (bottle) flow
 - Status tracking (`Working`, `Idle`, `Fault`, `Unavailable`)
 
-These are implemented in `Rule_main.py` as `Device`, `Conveyor`, `BufferNode`, and `Bottle` classes.
+These are implemented as `Device`, `Conveyor`, `BufferNode`, and `Bottle` classes.
 
----
-
-### 2. **Reinforcement Learning Controller**
-Defined in `RL_main.py`, the RL controller observes the factory state and decides:
 - **Release interval** — how fast new bottles are introduced.
 - **Assignment strategy** — whether to balance load or select the shortest queue.
 - **Fault response** — pause, emergency reroute, or conservative processing.
@@ -61,8 +70,11 @@ Defined in `RL_main.py`, the RL controller observes the factory state and decide
 ---
 
 ### 3. **Simulation and Testing Framework**
-Both `normal_test.py` and `fault_test.py` automate experiments by:
+- `normal_test.py` automate experiments by:
 - Scaling production orders (10–10,000 bottles)
+- Comparing RL vs non-RL (rule-based) performance
+
+- `fault_test.py` automate experiments by:
 - Injecting random filler faults (up to 50% per type)
 - Comparing RL vs non-RL (rule-based) performance
 
@@ -70,10 +82,9 @@ Both `normal_test.py` and `fault_test.py` automate experiments by:
 | Metric | Description |
 |---------|-------------|
 | `actual_completion_time` | Total time to complete all bottles |
-| `avg_time` | Mean time per bottle |
+| `avg_time` | Mean production time per bottle |
 | `avg_utilization` | Average utilization rate of filler devices |
 | `balance_degree` | Load balance across all fillers |
-| `working_fillers` | Active fillers after fault injection |
 
 Results are visualized and stored in temporary directories created during execution.
 
@@ -84,3 +95,11 @@ Results are visualized and stored in temporary directories created during execut
 ### 1. **Install Dependencies**
 ```bash
 pip install numpy matplotlib pandas
+```bash
+
+### 2. **Run Simulation**
+```bash
+python normal_test.py
+
+python fault_test.py
+```bash
