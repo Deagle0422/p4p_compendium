@@ -16,9 +16,8 @@ The **`source_code`** directory contains two main subcomponents:
     - Includes several **control components (CDs)** representing factory workstations and communication channels.
     - Demonstrates **factory workflow progression**, such as bottle movement, workstation activation, and timing signals.
     - Can be executed via:
-  ```bash
-  ./gradlew run
-  ```bash
+     ```bash
+        ./gradlew run
 
 ### 🔹 Project Files
 The **`project_files`** folder contains design records, progress updates, and communication materials exchanged with the supervisor (Dr. Zoran Salcic).
