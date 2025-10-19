@@ -27,7 +27,7 @@ These files document project evolution and architecture decisions.
 The **`results`** folder stores simulation outputs and evaluation data from the Python simulator.
 These include performance comparisons (RL vs Rule-based) data and visualized graphs of completion time, utilization, and load balance.
 
-# Py-Simulator — Digital Twin–Driven Factory Simulation
+# Py-Simulator — Digital Twin Driven Factory Simulation
 
 This folder contains the Python-based simulation framework that models and evaluates a **digital-twin production line** for intelligent scheduling, fault recovery, and reinforcement learning (RL).  
 
