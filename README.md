@@ -29,8 +29,7 @@ These include performance comparisons (RL vs Rule-based) data and visualized gra
 
 # Py-Simulator — Digital Twin–Driven Factory Simulation
 
-This folder contains the Python-based simulation framework that models and evaluates a **digital-twin production line** for intelligent scheduling, fault recovery, and reinforcement learning (RL)–based optimization.  
-It is part of the project **“Digital Twins and Machine Learning in Industrial Automation Systems Control.”**
+This folder contains the Python-based simulation framework that models and evaluates a **digital-twin production line** for intelligent scheduling, fault recovery, and reinforcement learning (RL).  
 
 ---
 
